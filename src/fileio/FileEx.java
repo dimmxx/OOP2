@@ -42,6 +42,8 @@ public class FileEx {
         System.out.println(file2.getParentFile());
         System.out.println(file2.getCanonicalFile());
 
+
+
         File [] fileArr = directory.listFiles();
 
         if (fileArr.length > 0){
