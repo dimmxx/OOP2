@@ -12,22 +12,38 @@ public class FileList {
 
     public static void main(String[] args) {
 
-        File dir = new File ("/users/ddimmxxgmail.com/fileTest");
-        System.out.println(dir.getName());
+        File dir = new File("/users/ddimmxxgmail.com/fileTest");
+        //System.out.println(dir.getName());
 
         listFiles(dir);
+        //directoryInfo(dir);
 
     }
 
-    public static void listFiles (File dir){
+    public static void listFiles(File dir) {
 
-        File [] fileArr = dir.listFiles();
+        File[] fileArr = dir.listFiles();
 
-        for(int i = 0; i < fileArr.length; i++){
+        for (int i = 0; i < fileArr.length; i++) {
+            // if(fileArr[i].)
+            System.out.println(fileArr[i].isDirectory() ?
+                    "[ " + fileArr[i].getPath() + " ]"
+                    : fileArr[i].getPath());
             if (fileArr[i].isDirectory()) listFiles(fileArr[i]);
-            System.out.println(fileArr[i].isDirectory() ? "/" + fileArr[i].getName() : fileArr[i]);
+            //System.out.println(fileArr[i].isDirectory() ? ".." + fileArr[i].getPath() : fileArr[i].getPath());
 
         }
+
+    }
+
+    public static void directoryInfo(File directory) {
+        //if (!directory.exists()) return;
+        File[] filesArr = directory.listFiles();
+        for (File file : filesArr) {
+            System.out.println(file.getPath());
+            if (file.isDirectory()) directoryInfo(file);
+        }
+
 
     }
 
