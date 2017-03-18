@@ -175,7 +175,7 @@ public class LinkedList <E> implements List <E> {
         //List <E> ls = new List<E>();
 
 
-        return null;//subList(indexFrom, indexTo);
+        return null;
     }
 
     @Override
