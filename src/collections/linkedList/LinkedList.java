@@ -173,8 +173,6 @@ public class LinkedList <E> implements List <E> {
     @Override
     public List<E> subList(int indexFrom, int indexTo) {
         //List <E> ls = new List<E>();
-
-
         return null;
     }
 
