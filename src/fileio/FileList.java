@@ -3,6 +3,7 @@ package fileio;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -12,13 +13,40 @@ public class FileList {
 
     public static void main(String[] args) {
 
-        File dir = new File("/users/ddimmxxgmail.com/fileTest");
+        File dir2 = new File("/users/ddimmxxgmail.com/Downloads");
         //System.out.println(dir.getName());
 
-        listFiles(dir);
+       // listFiles(dir);
         //directoryInfo(dir);
 
+        //delFiles(dir2); //! ОПАСНО!!!!!!
+
+        final Class<ArrayList> arrayListClass = ArrayList.class;
+
     }
+
+    public static void delFile (File dir, String filename){
+
+
+
+    }
+
+
+    public static void delFiles(File dir){ //опасно!!!! удаляет файлы
+        File[] fileArr = dir.listFiles();
+        int i = 0;
+        for (File file : fileArr){
+            i++;
+
+            file.delete();
+            System.out.println(file.getName() + " deleted");
+        }
+        System.out.println();
+        System.out.println(i + " files deleted");
+
+
+    }
+
 
     public static void listFiles(File dir) {
 
