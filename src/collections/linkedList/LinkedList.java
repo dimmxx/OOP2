@@ -1,6 +1,8 @@
 package collections.linkedList;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by ddimmxxgmail.com on 3/12/17.
  */
@@ -172,8 +174,9 @@ public class LinkedList <E> implements List <E> {
 
     @Override
     public List<E> subList(int indexFrom, int indexTo) {
-        //List <E> ls = new List<E>();
-        return null;
+        List <E> ls = new LinkedList<E>();
+
+        return ls;
     }
 
     @Override

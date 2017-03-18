@@ -34,7 +34,6 @@ public class FileEx {
             fw.close();
         }
 
-
         System.out.println(file2.getPath());
         System.out.println(file2.getName());
         System.out.println(file2.getParent());
@@ -42,8 +41,6 @@ public class FileEx {
         System.out.println(file2.getFreeSpace());
         System.out.println(file2.getParentFile());
         System.out.println(file2.getCanonicalFile());
-
-
 
         File [] fileArr = directory.listFiles();
 
@@ -54,7 +51,6 @@ public class FileEx {
 
             }
         }
-
 
         System.out.println(file2.isHidden());
         System.out.println(file2.canWrite());
@@ -70,16 +66,15 @@ public class FileEx {
         System.out.println(file2.length());
         System.out.println(directory.length());
 
+        File file4 = new File (directory, "fileCreate.txt");
 
-
-
-
-
-
-
-
-
-
+        if (!file4.exists()){
+            try{
+                file4.createNewFile();
+            } catch(IOException e){
+                e.printStackTrace();
+            }
+        }
 
     }
 
