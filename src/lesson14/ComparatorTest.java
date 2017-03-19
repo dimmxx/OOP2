@@ -1,8 +1,5 @@
 package lesson14;
 
-import collections.linkedList.LinkedList;
-
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
