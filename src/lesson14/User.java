@@ -3,7 +3,7 @@ package lesson14;
 /**
  * Created by ddimmxxgmail.com on 3/19/17.
  */
-public class User implements Comparable <User>{
+public class User implements Comparable <User>, Cloneable {
 
     private String name;
     private Integer age;
@@ -44,4 +44,8 @@ public class User implements Comparable <User>{
 
     }
 
+    @Override
+    public User clone() throws CloneNotSupportedException {
+        return (User)super.clone();
+    }
 }

@@ -35,8 +35,6 @@ public class ComparatorTest {
         list.add(user7);
         list.add(user8);
 
-
-
         //Collections.sort(list);
 
         System.out.println(list);
@@ -56,13 +54,7 @@ public class ComparatorTest {
             }
         }));
 
-
         System.out.println(list);
 
-
     }
-
-
-
-
 }
