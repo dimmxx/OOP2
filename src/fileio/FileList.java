@@ -3,7 +3,7 @@ package fileio;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -21,14 +21,25 @@ public class FileList {
 
         //delFiles(dir2); //! ОПАСНО!!!!!!
 
-        final Class<ArrayList> arrayListClass = ArrayList.class;
+
+        String filename = "Task1.java";
+        delFile(dir2, filename);
+
 
     }
 
     public static void delFile (File dir, String filename){
+        File [] fileArr = dir.listFiles();
 
+        for (File file : fileArr) {
+            if (file.getName().equals(filename)) {
+                System.out.print(file.getName() + " found ");
+                file.delete();
+                System.out.println(file.getName() + " deleted");
+            }
+            if (file.isDirectory()) delFile(file, filename);
 
-
+        }
     }
 
 
