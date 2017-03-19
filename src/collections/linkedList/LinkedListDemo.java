@@ -1,5 +1,7 @@
 package collections.linkedList;
 
+import java.util.Iterator;
+
 /**
  * Created by ddimmxxgmail.com on 3/12/17.
  */
@@ -54,8 +56,21 @@ public class LinkedListDemo {
         System.out.println(ll.subList(2,10));
 
 
+
+
+
+
+
+
+
+
+
+
+        }
+
+
     }
 
 
 
-}
+
