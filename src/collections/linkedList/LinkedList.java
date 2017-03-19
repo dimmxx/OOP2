@@ -1,12 +1,48 @@
 package collections.linkedList;
 
-
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 /**
  * Created by ddimmxxgmail.com on 3/12/17.
  */
-public class LinkedList <E> implements List <E> {
+public class LinkedList <E> implements List <E>,  Iterable {
+
+    @Override
+    public Iterator iterator() {
+        Iterator iter = new Iterator<E>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+            @Override
+            public E next() {
+                return null;
+            }
+        };
+
+        return iter;
+    }
+
+
+    @Override
+    public void forEach(Consumer action) {
+
+    }
+
+    @Override
+    public Spliterator spliterator() {
+        return null;
+    }
+
+
+
+
+
+
+
 
 
 
