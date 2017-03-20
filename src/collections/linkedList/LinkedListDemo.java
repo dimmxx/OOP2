@@ -52,8 +52,13 @@ public class LinkedListDemo {
         System.out.println(ll.indexOf(100));
         System.out.println(ll.contains(50));
         //ll.clear();
-        System.out.println(ll.toString());
-        System.out.println(ll.subList(2,10));
+        //System.out.println(ll.toString());
+        //System.out.println(ll.subList(2,10));
+
+
+
+        Iterator iter = ll.iterator();
+
 
 
 
