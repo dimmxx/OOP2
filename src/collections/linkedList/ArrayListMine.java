@@ -7,11 +7,9 @@ import java.util.Arrays;
  */
 public class ArrayListMine <E> implements List <E> {
 
-
-    final static int DEFAULT_CAPACITY = 10;
+    final static int DEFAULT_CAPACITY = 3;
     E [] elementData;
     int size = 0;
-
 
     public ArrayListMine (int length){
         elementData = (E[]) new Object [length];
@@ -21,23 +19,37 @@ public class ArrayListMine <E> implements List <E> {
         this(DEFAULT_CAPACITY);
     }
 
+    public void arrayCopy (){
+        E [] elementDataNew = (E[]) new Object [size + 3];
+        for (int i = 0; i < size; i++){
+            elementDataNew[i] = elementData[i];
+        }
+        elementData = elementDataNew;
+    }
 
-
-
-
-
-
+    public void ensureCapacity (){
+        if (size < elementData.length) return;
+        if (size == elementData.length) arrayCopy();
+    }
 
     @Override
     public void add(E element) {
+        ensureCapacity();
         elementData[size] = element;
-
-
-
+        size++;
     }
 
     @Override
     public void add(int index, E element) {
+        ensureCapacity();
+        if (index <= size) {
+            for (int i = size; i > index; i--) {
+                elementData[i] = elementData[i - 1];
+            }
+            elementData[index] = element;
+        }
+        if (index >= elementData.length) throw new ArrayIndexOutOfBoundsException("Out of array bounds");
+        if (index == elementData.length - 1) elementData[size] = element;
 
     }
 
@@ -102,7 +114,7 @@ public class ArrayListMine <E> implements List <E> {
     }
 
     public void printToString(){
-        System.out.println(Arrays.toString(elementData));
+        System.out.println(Arrays.toString(elementData) + " " + size + " " + elementData.length);
 
     }
 
