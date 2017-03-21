@@ -10,10 +10,15 @@ public class StackTest {
 
         ArrayStack stack = new ArrayStack(5);
 
+        ArrayStack stack1 = new ArrayStack();
+        stack1.push(2);
+
+
         stack.push(true);
         System.out.println(stack.toString());
         stack.pop();
         System.out.println(stack.toString());
+        System.out.println(stack1.toString());
 
     }
 }

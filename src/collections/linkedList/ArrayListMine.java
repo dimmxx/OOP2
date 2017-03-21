@@ -1,9 +1,31 @@
 package collections.linkedList;
 
+import java.util.Arrays;
+
 /**
  * Created by ddimmxxgmail.com on 3/20/17.
  */
 public class ArrayListMine <E> implements List <E> {
+
+
+    final static int DEFAULT_CAPACITY = 10;
+    E [] array;
+    int size = 0;
+
+
+    public ArrayListMine (int length){
+        array = (E[]) new Object [length];
+    }
+
+    public ArrayListMine (){
+        this(DEFAULT_CAPACITY);
+    }
+
+
+
+
+
+
 
 
     @Override

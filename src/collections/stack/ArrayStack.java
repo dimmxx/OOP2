@@ -12,9 +12,15 @@ public class ArrayStack <E> implements Stack <E> {
     int count = 0;
 
 
+
+
     public ArrayStack(){
         this(DEFAULT_CAPACITY);
     }
+
+//    public ArrayStack(){
+//        this(DEFAULT_CAPACITY);
+//    }
 
     public ArrayStack(int length){
         elementData = (E[]) new Object [length];
