@@ -7,6 +7,13 @@ public class ArrayListMineDemo {
 
     public static void main(String[] args) {
 
+        ArrayListMine al = new ArrayListMine();
+
+        System.out.println(al.toString());
+
+        al.add(7);
+        System.out.println(al.toString());
+
 
 
 

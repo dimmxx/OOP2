@@ -9,12 +9,12 @@ public class ArrayListMine <E> implements List <E> {
 
 
     final static int DEFAULT_CAPACITY = 10;
-    E [] array;
+    E [] elementData;
     int size = 0;
 
 
     public ArrayListMine (int length){
-        array = (E[]) new Object [length];
+        elementData = (E[]) new Object [length];
     }
 
     public ArrayListMine (){
@@ -30,6 +30,9 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void add(E element) {
+        elementData[size] = element;
+
+
 
     }
 
@@ -95,6 +98,12 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public String toString() {
-        return super.toString();
+        return Arrays.toString(elementData);
     }
+
+    public void printToString(){
+        System.out.println(Arrays.toString(elementData));
+
+    }
+
 }
