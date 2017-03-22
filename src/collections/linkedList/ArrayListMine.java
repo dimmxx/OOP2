@@ -10,6 +10,7 @@ public class ArrayListMine <E> implements List <E> {
     final static int DEFAULT_CAPACITY = 3;
     E [] elementData;
     int size = 0;
+    int remove = 0;
 
     public ArrayListMine (int length){
         elementData = (E[]) new Object [length];
@@ -19,8 +20,8 @@ public class ArrayListMine <E> implements List <E> {
         this(DEFAULT_CAPACITY);
     }
 
-    public void arrayCopy (){
-        E [] elementDataNew = (E[]) new Object [size + 3];
+    public void arrayCopy (int newSize){
+        E [] elementDataNew = (E[]) new Object [newSize];
         for (int i = 0; i < size; i++){
             elementDataNew[i] = elementData[i];
         }
@@ -29,7 +30,14 @@ public class ArrayListMine <E> implements List <E> {
 
     public void ensureCapacity (){
         if (size < elementData.length) return;
-        if (size == elementData.length) arrayCopy();
+        if (size == elementData.length) arrayCopy(size + 3);
+    }
+
+    public void trimSize (){
+        if (elementData.length > size + 9){
+            arrayCopy(size + 3);
+        }
+
     }
 
     @Override
@@ -41,6 +49,8 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void add(int index, E element) {
+        if (index >= elementData.length)
+            throw new ArrayIndexOutOfBoundsException("Out of array bounds");
         ensureCapacity();
         if (index <= size) {
             for (int i = size; i > index; i--) {
@@ -48,8 +58,11 @@ public class ArrayListMine <E> implements List <E> {
             }
             elementData[index] = element;
         }
-        if (index >= elementData.length) throw new ArrayIndexOutOfBoundsException("Out of array bounds");
-        if (index == elementData.length - 1) elementData[size] = element;
+
+        if (index == elementData.length - 1) {
+            elementData[size] = element;
+        }
+        size++;
 
     }
 
@@ -65,17 +78,27 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public E get(int index) {
-        return null;
+        return elementData[index];
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        elementData[index] = element;
+        return elementData[index];
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        if(index >= size) throw new ArrayIndexOutOfBoundsException("Wrong index");
+        trimSize();
+        E tmp = elementData[index];
+        for (int i = index; i < size - 1; i++){
+            elementData[i] = elementData[i + 1];
+        }
+        elementData[size - 1] = null;
+        size--;
+        return tmp;
+
     }
 
     @Override
@@ -85,12 +108,13 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if (size == 0) return true;
+        else return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -105,6 +129,11 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void clear() {
+        for (int i = size; i > 1; i--){
+            elementData[i] = null;
+            size--;
+        }
+        remove(0);
 
     }
 
@@ -114,7 +143,8 @@ public class ArrayListMine <E> implements List <E> {
     }
 
     public void printToString(){
-        System.out.println(Arrays.toString(elementData) + " " + size + " " + elementData.length);
+        System.out.println(Arrays.toString(elementData) + " Size: " + size
+                                                        + " length: " + elementData.length);
 
     }
 
