@@ -209,10 +209,10 @@ public class LinkedList <E> implements List <E>,  Iterable {
     }
 
     @Override
-    public List<E> subList(int indexFrom, int indexTo) {
+    public java.util.List subList(int indexFrom, int indexTo) {
         List <E> ls = new LinkedList<E>();
 
-        return ls;
+        return null;
     }
 
     @Override

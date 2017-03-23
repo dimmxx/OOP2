@@ -14,11 +14,11 @@ public class ArrayListMineDemo {
 
 
 
-//        al.add(1);
-//        al.add(2);
-//        al.add(3);
-//       // al.add(4);
-//        al.printToString();
+        al.add(1);
+        al.add(2);
+        al.add(3);
+       al.add(4);
+        al.printToString();
 ////       al.add(5);
 ////        al.add(6);
 ////        al.add(7);
@@ -39,21 +39,24 @@ public class ArrayListMineDemo {
 
        al.printToString();
 
-       for (int i = 0; i < 100; i++){
-           al.add((int)(Math.random()*100));
-
-       }
-       al.printToString();
-
-        for (int i = 99; i > 10; i--){
-            al.remove(i);
-        }
+//       for (int i = 0; i < 100; i++){
+//           al.add((int)(Math.random()*100));
+//
+//       }
+//       al.printToString();
+//
+//        for (int i = 99; i > 10; i--){
+//            al.remove(i);
+//        }
 
         al.printToString();
-        al.remove(0);
-        al.printToString();
-        al.clear();
-        al.printToString();
+
+        System.out.println(al.indexOf(1));
+        System.out.println(al.contains(22));
+
+        System.out.println(al.toString());
+
+        System.out.println(al.subList(3, 5).toString());
 
 
 

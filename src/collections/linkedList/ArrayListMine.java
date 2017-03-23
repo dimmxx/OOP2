@@ -1,5 +1,6 @@
 package collections.linkedList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -63,7 +64,6 @@ public class ArrayListMine <E> implements List <E> {
             elementData[size] = element;
         }
         size++;
-
     }
 
     @Override
@@ -102,8 +102,14 @@ public class ArrayListMine <E> implements List <E> {
     }
 
     @Override
-    public List<E> subList(int indexFrom, int indexTo) {
-        return null;
+    public java.util.List<E> subList(int indexFrom, int indexTo) {
+        if (indexFrom < 0 || indexTo < 0) throw new ArrayIndexOutOfBoundsException("Wrong index");
+        if (indexFrom > elementData.length - 1 || indexTo > elementData.length - 1) throw new ArrayIndexOutOfBoundsException("Wrong index");
+        ArrayList <E> tmpArrayList = new ArrayList<E>();
+        for (int i = indexFrom ; i <= indexTo; i++){
+            tmpArrayList.add(elementData[i]);
+        }
+        return tmpArrayList;
     }
 
     @Override
@@ -119,11 +125,17 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public int indexOf(E element) {
-        return 0;
+        for (int i = 0; i < size; i++){
+            if (elementData[i] == element) return i;
+        }
+        return -1;
     }
 
     @Override
     public boolean contains(E element) {
+        for (int i = 0; i < size; i++){
+            if (elementData[i] == element) return true;
+        }
         return false;
     }
 
@@ -134,12 +146,17 @@ public class ArrayListMine <E> implements List <E> {
             size--;
         }
         remove(0);
-
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(elementData);
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < elementData.length; i++){
+            sb.append(i == elementData.length - 1 ? elementData[i] : elementData[i] + ", ");
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
     public void printToString(){

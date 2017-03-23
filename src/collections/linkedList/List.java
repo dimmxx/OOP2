@@ -20,7 +20,7 @@ public interface List <E> {
 
     E remove(int index);
 
-    List<E> subList(int indexFrom, int indexTo);
+    java.util.List subList(int indexFrom, int indexTo);
 
     boolean isEmpty();
 
