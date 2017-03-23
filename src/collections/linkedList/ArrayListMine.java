@@ -82,6 +82,8 @@ public class ArrayListMine <E> implements List <E> {
 
 
 
+
+
     }
 
     @Override

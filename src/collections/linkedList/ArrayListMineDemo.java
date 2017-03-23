@@ -75,6 +75,20 @@ public class ArrayListMineDemo {
         al.printToString();
 
 
+        LinkedList ll = new LinkedList();
+
+        ll.add(1.1);
+        ll.add(2.2);
+        ll.add(3.3);
+
+        System.out.println(ll.toString());
+
+
+
+
+
+
+
 
 
 
