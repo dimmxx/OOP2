@@ -48,7 +48,7 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void add(int index, E element) {
-        if (index >= elementData.length)
+        if (index >= elementData.length || index < 0)
             throw new ArrayIndexOutOfBoundsException("Out of array bounds");
         ensureCapacity();
         if (index <= size) {
@@ -76,14 +76,19 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void addAll(int index, List<? extends E> collection) {
+        if (index >= elementData.length || index < 0 || index > size)
+            throw new  ArrayIndexOutOfBoundsException("Wrong index");
+        if (elementData.length - size < collection.size())
+            arrayCopy(size + collection.size());
 
-
-
-
-
-
-
-
+        for (int i = 0; i < size - index; i++){
+             elementData[(size - 1) - i + collection.size()] = elementData[(size - 1) - i];
+             elementData[(size - 1) - i] = null;
+        }
+        for (int i = 0; i < collection.size(); i++){
+            elementData[index + i] = collection.get(i + 1);
+        }
+        size += collection.size();
     }
 
     @Override

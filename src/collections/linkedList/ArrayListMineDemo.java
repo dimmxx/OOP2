@@ -83,6 +83,10 @@ public class ArrayListMineDemo {
 
         System.out.println(ll.toString());
 
+        al.addAll(0, ll);
+
+        al.printToString();
+
 
 
 
