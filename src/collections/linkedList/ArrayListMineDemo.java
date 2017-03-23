@@ -58,6 +58,25 @@ public class ArrayListMineDemo {
 
         System.out.println(al.subList(3, 5).toString());
 
+        System.out.println(al.toString());
+
+
+
+        ArrayList al1 = new ArrayList();
+        al1.add(5);
+        al1.add(6);
+        al1.add(7);
+        al1.add(10);
+
+        al.addAll(al1);
+
+        System.out.println(al.toString() + " " + al.size());
+        al.add(true);
+        al.printToString();
+
+
+
+
 
 
 

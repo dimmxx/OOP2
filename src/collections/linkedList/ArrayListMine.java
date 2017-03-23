@@ -11,7 +11,6 @@ public class ArrayListMine <E> implements List <E> {
     final static int DEFAULT_CAPACITY = 3;
     E [] elementData;
     int size = 0;
-    int remove = 0;
 
     public ArrayListMine (int length){
         elementData = (E[]) new Object [length];
@@ -21,8 +20,8 @@ public class ArrayListMine <E> implements List <E> {
         this(DEFAULT_CAPACITY);
     }
 
-    public void arrayCopy (int newSize){
-        E [] elementDataNew = (E[]) new Object [newSize];
+    public void arrayCopy (int newLength){
+        E [] elementDataNew = (E[]) new Object [newLength];
         for (int i = 0; i < size; i++){
             elementDataNew[i] = elementData[i];
         }
@@ -67,8 +66,14 @@ public class ArrayListMine <E> implements List <E> {
     }
 
     @Override
-    public void addAll(List<? extends E> collection) {
-
+    public void addAll(java.util.List<? extends E> collection) {
+        if (elementData.length - size < collection.size()){
+            arrayCopy(size + collection.size());
+        }
+        for (int i = size; i < elementData.length; i++){
+            elementData[i] = collection.get(i - size);
+        }
+        size += collection.size();
     }
 
     @Override
@@ -98,7 +103,6 @@ public class ArrayListMine <E> implements List <E> {
         elementData[size - 1] = null;
         size--;
         return tmp;
-
     }
 
     @Override

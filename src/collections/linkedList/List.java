@@ -10,7 +10,7 @@ public interface List <E> {
 
     void add(int index, E element);
 
-    void addAll(List <? extends E> collection);
+    void addAll(java.util.List<? extends E> collection);
 
     void addAll(int index, List <? extends E> collection);
 

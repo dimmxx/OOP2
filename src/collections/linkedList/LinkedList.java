@@ -133,7 +133,7 @@ public class LinkedList <E> implements List <E>,  Iterable {
     }
 
     @Override
-    public void addAll(List<? extends E> collection) {
+    public void addAll(java.util.List<? extends E> collection) {
 
     }
 
