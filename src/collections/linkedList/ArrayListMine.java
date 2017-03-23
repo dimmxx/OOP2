@@ -37,7 +37,6 @@ public class ArrayListMine <E> implements List <E> {
         if (elementData.length > size + 9){
             arrayCopy(size + 3);
         }
-
     }
 
     @Override
@@ -58,7 +57,6 @@ public class ArrayListMine <E> implements List <E> {
             }
             elementData[index] = element;
         }
-
         if (index == elementData.length - 1) {
             elementData[size] = element;
         }
@@ -78,6 +76,11 @@ public class ArrayListMine <E> implements List <E> {
 
     @Override
     public void addAll(int index, List<? extends E> collection) {
+
+
+
+
+
 
     }
 
